@@ -1,0 +1,103 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hej
+    - cześć
+    - dzień dobry
+    - halo
+    - ciao
+    - elo
+    - siema
+    - witaj
+    - dobry dzień
+    - czołem
+    - dobry wieczór
+    - hey
+    - hello
+    - hi
+
+- intent: goodbye
+  examples: |
+    - do widzenia
+    - dobranoc
+    - do zobaczenia
+    - pa
+    - zegnaj
+    - bye
+
+- intent: affirm
+  examples: |
+    - tak
+    - potwierdzam
+    - zdecydowanie
+    - raczej tak
+    - dobrze
+    - good
+    - yes
+    - y
+
+- intent: deny
+  examples: |
+    - nie 
+    - nigdy
+    - nie sądzę
+    - raczej nie
+    - na pewno nie
+    - nic
+    - zadne
+    - no
+    - n
+    - never
+
+- intent: mood_great
+  examples: |
+    - czuję się świetnie
+    - świetnie
+    - dobrze
+    - pozytywnie
+- intent: mood_unhappy
+  examples: |
+    - źle
+    - smutno
+    - przykro
+    - niedobrze
+
+- intent: bot_challenge
+  examples: |
+    - czy jesteś robotem?
+    - jesteś człowiekiem?
+    - rozmawiam z robotem?
+    - rozmawiam z człowiekiem?
+
+- intent: query_attribute
+  examples: |
+    - Jaka jest [płeć]{"entity": "attribute", "value": "gender"} [osoby]{"entity": "entity_type", "value": "person"} [Wojciech Kłopotek](person)?
+    - Jaka jest [płeć]{"entity": "attribute", "value": "gender"} [osoby]{"entity": "entity_type", "value": "person"} [Marianna Suszyńska](person)?
+    - [Gdzie]{"entity": "attribute", "value": "place"} jest [uniwersytet]{"entity": "entity_type", "value": "university"} [MIMUW](university)?
+    - Kiedy [zaczyna się]{"entity": "attribute", "value": "date_start"} [wydarzenie]{"entity": "entity_type", "value": "event"} [Otwarcie wydziału](event)?
+    - Kiedy [kończy się]{"entity": "attribute", "value": "date_end"} [wydarzenie]{"entity": "entity_type", "value": "event"} [Otwarcie wydziału](event)?
+    - [Gdzie]{"entity": "attribute", "value": "place"} odbywa się [pierwsze]{"entity": "mention", "value": "first"} [wydarzenie]{"entity": "entity_type", "value": "event"}?
+    - [Gdzie]{"entity": "attribute", "value": "place"} odbywa się [drugie]{"entity": "mention", "value": "second"} [wydarzenie]{"entity": "entity_type", "value": "event"}?
+    - [Gdzie]{"entity": "attribute", "value": "place"} odbywa się [trzecie]{"entity": "mention", "value": "third"} [wydarzenie]{"entity": "entity_type", "value": "event"}?
+    - [Gdzie]{"entity": "attribute", "value": "place"} odbywa się [czwarte]{"entity": "mention", "value": "fourth"} [wydarzenie]{"entity": "entity_type", "value": "event"}?
+- intent: query_entities
+  examples: |
+    - Pokaż mi wszystkie [wydarzenia]{"entity": "entity_type", "value": "event"}
+    - Wymień [wydarzenia]{"entity": "entity_type", "value": "event"}
+    - Pokaż wszystkie [osoby]{"entity": "entity_type", "value": "person"}
+    - Pokaż wszystkie [uniwersytety]{"entity": "entity_type", "value": "university"}
+- intent: resolve_entity
+  examples: |
+    - [1](mention)
+    - [3](mention)
+    - [2](mention)
+    - [4](mention)
+    - [5](mention)
+    - [pierwszy]{"entity": "mention", "value": "first"} 
+    - ten [drugi]{"entity": "mention", "value": "second"} 
+    - [trzecia]{"entity": "mention", "value": "third"} osoba
+    - [drugiej]{"entity": "mention", "value": "second"}
+    - Pokaż [trzeciego]{"entity": "mention", "value": "third"} 
+    

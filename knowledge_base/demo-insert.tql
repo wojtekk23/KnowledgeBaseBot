@@ -1,0 +1,22 @@
+transaction events data write
+    match $p isa person; delete $p isa person; 
+    match $e isa event; delete $e isa event; 
+    match $u isa university; delete $u isa university; 
+    match $pp isa place; delete $pp isa place; 
+    match $r isa employment; delete $r isa employment;
+    match $s isa takes_place; delete $s isa takes_place;
+    commit
+
+transaction events data write
+    insert $p isa person, has name "Wojciech Kłopotek", has gender "M";
+    insert $p isa person, has name "Marianna Suszyńska", has gender "F";
+    insert $e isa event, has name "Otwarcie wydziału", has date_start 2021-12-11, has date_end 2021-12-13;
+    insert $u isa university, has name "MIMUW";
+    insert $pp isa place, has location "Banacha 2";
+    commit
+    
+transaction events data write
+    match $p isa person, has name "Wojciech Kłopotek"; $uni isa university, has name "MIMUW"; insert $new-employment (employer: $uni, employee: $p) isa employment;
+    match $p isa place, has location "Banacha 2"; $uni isa university, has name "MIMUW"; insert $new-tplace (thing: $uni, pplace: $p) isa takes_place;
+    match $p1 isa place, has location "Banacha 2"; $e isa event, has name "Otwarcie wydziału"; insert $new-tplace1 (thing: $e, pplace: $p1) isa takes_place;
+    commit

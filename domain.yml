@@ -1,0 +1,93 @@
+version: "2.0"
+
+slots:
+  person:
+    type: text
+    auto_fill: true
+  gender:
+    type: text
+    auto_fill: true
+  university:
+    type: text
+    auto_fill: true
+  place:
+    type: text
+    auto_fill: true
+  event:
+    type: text
+    auto_fill: true
+  entity_type:
+    type: text
+    auto_fill: true
+  listed_items:
+    type: text
+    auto_fill: true
+  name:
+    type: text
+    auto_fill: true
+  attribute:
+    type: text
+    auto_fill: true
+  mention:
+    type: text
+    auto_fill: true
+  date_start:
+    type: text
+    auto_fill: true
+  date_end:
+    type: text
+    auto_fill: true
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - query_attribute
+  - query_entities
+  - resolve_entity
+
+entities:
+  - person
+  - mention
+  - university
+  - place
+  - date_start
+  - date_end
+  - gender
+
+responses:
+  utter_greet:
+  - text: "Cześć! W czym mogę pomóc?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Czy to pomogło?"
+
+  utter_happy:
+  - text: "Super! Co dalej?"
+
+  utter_goodbye:
+  - text: "Do zobaczenia!"
+
+  utter_iamabot:
+  - text: "Jestem botem, nasilanym przez Rasę."
+
+  utter_rephrase:
+  - text: "Czy mógłbyś inaczej to sformułować?"
+
+actions:
+- action_compare_entities
+- action_query_attribute
+- action_query_entities
+- action_resolve_entity
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

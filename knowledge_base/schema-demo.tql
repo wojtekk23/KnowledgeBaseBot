@@ -1,0 +1,50 @@
+define
+
+# entities
+
+event sub entity,
+  owns name @key,
+  owns date_start,
+  owns date_end,
+  plays takes_place:thing;
+  
+person sub entity,
+  plays employment:employee,
+  owns name @key,
+  owns gender;
+  
+university sub entity,
+  plays employment:employer,
+  plays takes_place:thing,
+  owns name @key;
+  
+place sub entity,
+  owns location @key,
+  plays takes_place:pplace;
+
+# relationships
+
+employment sub relation,
+  relates employee,
+  relates employer;
+  
+takes_place sub relation,
+  relates thing,
+  relates pplace;
+
+# attributes
+
+name sub attribute,
+  value string;
+  
+date_start sub attribute,
+  value datetime;
+  
+date_end sub attribute,
+  value datetime;
+  
+gender sub attribute,
+  value string;
+  
+location sub attribute,
+  value string;
